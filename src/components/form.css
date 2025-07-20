@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+form div {
+    display: flex;
+    gap: 10px;
+}
+
+label{
+    flex-basis: 100px;
+}
+
+input{
+    width: 250px;
+}
+#digit{
+    width: 50px;
+}
+label, input {
+    font-size: 18px;
+}
+
+button{
+    border: 1px solid rgba(255, 255, 255, 0.60);
+}
