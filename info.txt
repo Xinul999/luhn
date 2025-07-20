@@ -1,0 +1,19 @@
+Variant N11
+
+Luhn algorithm.
+
+1 input: to enter the initial number (e.g. a credit card, a SIRET number, but without the last checked digit)
+1 button: ‘Calculate Check Digit’
+2 input fields to display the check digit and the full code, or any html element (div, span,...)
+
+Luhn Algorithm: see the running example on https://simplycalc.com/luhn-calculate.php , the algorithm can be taken from https://simplycalc.com/luhn.js
+
+Example: Enter 123456 => Result Check digit = 6, Full code  = 1234566
+
+Enter 1 => Result Check digit = 8, Full code  = 18
+Enter 12 => Result Check digit = 5, Full code  = 125
+Enter 123 => Result Check digit = 0, Full code  = 1230
+
+1[X] => 2 * 1 => 2 => S => [10 - (S % 10)] % 10 => [10 - (2 % 10)] % 10 = 10 - 2 = 8 % 10 = 8
+12[X] => 2*2 + 1 = 5 => S => [10 - (S % 10)] % 10 => [10 - (5 % 10)] % 10 = 10 - 5 = 5 % 10 = 5
+123[X] => 2*3 + 2 + 2*1 => S => [ 10 - (S % 10)] % 10 => [10 - (10 % 10)] % 10 = 10 - 0 = 10 % 10 = 0
