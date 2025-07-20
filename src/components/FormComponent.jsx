@@ -1,4 +1,5 @@
 import React from "react";
+import LabInputComponent from "./LabInput.jsx"
 import './form.css'
 class FormComponent extends React.Component {
 
@@ -27,17 +28,14 @@ class FormComponent extends React.Component {
                 checkDigit: checkCode
             });
 
-            // TODO inside the button
-            //this.setState({ fullCode: event.target.value + this.state.checkDigit });
         }
         if(event.target.value.trim() === '') {
             this.setState({
                 code: event.target.value,
-                checkDigit: ''
+                checkDigit: '',
+                fullCode: ''
             });
 
-            // TODO inside the button
-            //this.setState({ fullCode:  this.state.code.slice(0, -1)});
         }
 
     }
@@ -66,16 +64,38 @@ class FormComponent extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <label htmlFor={"code"}>Code:</label>
-                    <input type="text" id="code" value={this.state.code} onChange={this.handleChangeCode} placeholder={"Enter just number"}/>
+                    <LabInputComponent
+                        id={"code"}
+                        label={"Code: "}
+                        inputType={"text"}
+                        inputValue={this.state.code}
+                        placeholder={"Enter just a number"}
+                        readOnly={false}
+                        disabled={false}
+                        onChange={this.handleChangeCode}
+                    />
                 </div>
                 <div>
-                    <label htmlFor={"digit"}> Check digit:</label>
-                    <input type="text" id="digit" value={this.state.checkDigit} readOnly={true} disabled={true}/>
+                    <LabInputComponent
+                        id={"digit"}
+                        label={"Check digit: "}
+                        inputType={"text"}
+                        inputValue={this.state.checkDigit}
+                        placeholder={""}
+                        readOnly={true}
+                        disabled={true}
+                    />
                 </div>
                 <div>
-                    <label htmlFor={"full"}>Full Code:  </label>
-                    <input type="text" id="full" value={this.state.fullCode} readOnly={true} disabled={true}/>
+                    <LabInputComponent
+                        id={"full"}
+                        label={"Full Code: "}
+                        inputType={"text"}
+                        inputValue={this.state.fullCode}
+                        placeholder={""}
+                        readOnly={true}
+                        disabled={true}
+                    />
                 </div>
                 <button type="submit">Submit</button>
             </form>
